@@ -64,10 +64,13 @@ resource "aws_dynamodb_table" "default" {
   }
 
   lifecycle {
-    ignore_changes = [
-      read_capacity,
-      write_capacity
-    ]
+    ignore_changes = concat(
+      [
+        read_capacity,
+        write_capacity
+      ],
+      var.allow_index_creation && var.enable_autoscaler ? [global_secondary_index] : []
+    )
   }
 
   dynamic "attribute" {
