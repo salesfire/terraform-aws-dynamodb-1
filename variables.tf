@@ -150,9 +150,3 @@ variable "local_secondary_index_map" {
   default     = []
   description = "Additional local secondary indexes in the form of a list of mapped values"
 }
-
-variable "disable_gsi_updates" {
-  description = "Disable global secondary index updates to stop read and write capacity causing updates"
-  type        = bool
-  default     = false
-}
