@@ -174,3 +174,9 @@ variable "table_class" {
   default     = "STANDARD"
   description = "DynamoDB storage class of the table. Can be STANDARD or STANDARD_INFREQUENT_ACCESS"
 }
+
+variable "disable_gsi_updates" {
+  type        = bool
+  default     = false
+  description = "Set to `true` to disable updates to the global secondary indexes. This can be helpful to stop updates when autoscaling is enabled."
+}
